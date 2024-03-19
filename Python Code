@@ -1,0 +1,38 @@
+#CSVDynamicWriteEx1.py
+import csv
+noh=int(input("Enter How Many Header Names u have:"))
+if(noh<=0):
+    print("Invalid Header Names")
+else:
+    hns=[] # empty list
+    for i in range(1,noh+1):
+        hn=input("Enter {} Header Name:".format(i))
+        hns.append(hn)
+    #accept Number of records
+    records = []
+    while(True):
+        record = []
+        #accept the First Header Name Value
+        print("--------------------------")
+        for i in range(0,len(hns)):
+            hv1=input("Enter Value for {}:".format(hns[i]))
+            record.append(hv1)
+        records.append(record)
+        print("--------------------------")
+        ch=input("Do u want to another record(yes/no):")
+        if(ch.lower()=="no"):
+            break
+        print("--------------------------")
+        #save hns to records to CSV File
+    with open("C:\\Users\\CSV Files\\Books.csv","w") as fp:
+        csvwr=csv.writer(fp)
+        csvwr.writerow(hns)
+        csvwr.writerows(records)
+        print("CSV File created Dynamically--Verify")
+
+
+
+
+
+
+
